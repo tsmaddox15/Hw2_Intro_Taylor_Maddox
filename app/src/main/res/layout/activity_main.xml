@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/secP"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<TextClock-->
+    <!--android:id="@+id/dClock1"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="170dp"-->
+    <!--android:format12Hour="MMM dd yyyy \nhh:mm:ss:a"-->
+    <!--android:text="Placeholder"-->
+    <!--android:textSize="30sp" />-->
+
+    <TextView
+        android:id="@+id/dClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="433dp"
+        android:text="TextView"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/hourM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="98dp"
+        android:onClick="changeTime"
+        android:text="-1 Hr" />
+
+    <TextView
+        android:id="@+id/changeH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="77dp"
+        android:text="Change Hour:" />
+
+    <Button
+        android:id="@+id/hourP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/hourM"
+        android:layout_alignParentStart="true"
+        android:onClick="changeTime"
+        android:text="+1 HR" />
+
+    <TextView
+        android:id="@+id/ChaneMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="168dp"
+        android:text="Change Minute:" />
+
+    <Button
+        android:id="@+id/minuteP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ChaneMin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="4dp"
+        android:onClick="changeTime"
+        android:text="+1 Min" />
+
+    <Button
+        android:id="@+id/minuteM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/minuteP"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@+id/hourP"
+        android:onClick="changeTime"
+        android:text="-1 Min" />
+
+    <TextView
+        android:id="@+id/changeSec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="77dp"
+        android:text="Chaneg Second:" />
+
+    <Button
+        android:id="@+id/newD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:onClick="changeTime"
+        android:text="New Digital" />
+
+    <Button
+        android:id="@+id/newA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/changeSec"
+        android:layout_alignTop="@+id/newD"
+        android:onClick="changeTime"
+        android:text="New Analog" />
+
+    <Button
+        android:id="@+id/secPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/hourM"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/minuteM"
+        android:onClick="changeTime"
+        android:text="+5 Sec" />
+
+    <Button
+        android:id="@+id/secM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/hourM"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="12dp"
+        android:onClick="changeTime"
+        android:text="-5 Sec" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="Change Month" />
+
+    <Button
+        android:id="@+id/monthP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:onClick="changeTime"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/monthM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/monthP"
+        android:layout_toEndOf="@+id/minuteP"
+        android:onClick="changeTime"
+
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ChaneMin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="0dp"
+        android:text="Change Day" />
+
+    <Button
+        android:id="@+id/dayPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/minuteM"
+        android:layout_toStartOf="@+id/secM"
+        android:onClick="changeTime"
+        android:text="+1 Day" />
+
+    <Button
+        android:id="@+id/dayMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ChaneMin"
+        android:layout_alignStart="@+id/secM"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
+        android:onClick="changeTime"
+        android:text="-1 Day" />
+
+    <Button
+        android:id="@+id/undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/monthP"
+        android:layout_toStartOf="@+id/secM"
+        android:onClick="changeTime"
+        android:text="undo" />
+
+</RelativeLayout>
