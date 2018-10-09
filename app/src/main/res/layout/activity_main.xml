@@ -203,8 +203,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/monthP"
+        android:layout_marginEnd="-95dp"
+        android:layout_marginBottom="1dp"
         android:layout_toStartOf="@+id/secM"
         android:onClick="changeTime"
         android:text="undo" />
+
+    <Button
+        android:id="@+id/redo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/undo"
+        android:layout_toEndOf="@+id/minuteM"
+        android:onClick="changeTime"
+        android:text="Redo" />
 
 </RelativeLayout>
