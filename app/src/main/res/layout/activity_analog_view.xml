@@ -2,31 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/secP"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".analogView">
 
-    <!--<TextClock-->
-    <!--android:id="@+id/dClock1"-->
+    <com.example.tsmad_000.hw2_intro_taylor_maddox.CanvasClock
+        android:id="@+id/aClock"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="437dp" />
+
+    <!--<AnalogClock-->
+    <!--android:id="@+id/aClock"-->
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentStart="true"-->
     <!--android:layout_alignParentTop="true"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_marginTop="170dp"-->
-    <!--android:format12Hour="MMM dd yyyy \nhh:mm:ss:a"-->
-    <!--android:text="Placeholder"-->
-    <!--android:textSize="30sp" />-->
-
-    <TextView
-        android:id="@+id/dClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="433dp"
-        android:text="TextView"
-        android:textSize="30sp" />
+    <!--android:layout_marginStart="149dp"-->
+    <!--android:layout_marginTop="437dp" />-->
 
     <Button
         android:id="@+id/hourM1"

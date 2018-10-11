@@ -5,24 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    //Class instances.
-//    Command c;
-    Model m;
-    Controller control;
-
-    //Holds total time of clock
+public class analogView extends AppCompatActivity {
     long date = System.currentTimeMillis();
-
-    //XML elements.
-    TextView tClock;
     SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy\nhh:mm:ss:a");
+    String dateString = sdf.format(date);
+    CanvasClock tClock;
+    Command c;
+    Model m;
     Button hourM;
     Button hourP;
     Button minM;
@@ -36,17 +28,18 @@ public class MainActivity extends AppCompatActivity {
     Button undo;
     Button redo;
 
+    Controller control;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        c = new Command();
+        setContentView(R.layout.activity_analog_view);
+        c = new Command();
         m = new Model();
         control = new Controller(m);
 
-        tClock = (TextView) findViewById(R.id.dClock);
+        tClock = findViewById(R.id.aClock);
         hourM = (Button) findViewById(R.id.hourM1);
         hourP = (Button) findViewById(R.id.hourP1);
         minM = (Button) findViewById(R.id.minuteM1);
@@ -60,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         undo = (Button) findViewById(R.id.undo1);
         redo = (Button) findViewById(R.id.redo1);
 
-
-        //Thread is used to keep track of time going on. use thread.sleep to delay by a second.
-        //Once slepe ends we add 1 second to the date var that holds total time.
         Thread t = new Thread() {
             @Override
             public void run() {
@@ -72,11 +62,9 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-//                                TextView tClock = (TextView) findViewById(R.id.dClock);
                                 date += 1000;
                                 SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy\nhh:mm:ss a");
                                 String dateString = sdf.format(date);
-                                tClock.setText(dateString);
                             }
                         });
                     }
@@ -93,67 +81,52 @@ public class MainActivity extends AppCompatActivity {
      60000 = a minute
      5000 = 5 seconds
      86400000 = a day
-     657000000*4 = A month (This is because the long value for a month of millsecs is too great.)
-
-     Used when a button is pressed to change value of clock.
+     657000000*4 + 7200000 = A month
      */
     public void changeTime(View v) {
-        //Logic for update.
-        String newTime = control.setTime(date, v);
-        Long cDate = control.getDate();
-
-
+        String test = control.setTime(date, v);
+        long cDate = tClock.changeHands(date, v);
         //Has a case for Plus(P), and Minus(M) for each button.
         //Also includes redo and undo button.
         switch (v.getId()) {
             case R.id.hourM1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.hourP1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.minuteM1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.minuteP1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.secM1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.secPlus1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.dayMinus1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.dayPlus1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.monthM1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
             case R.id.monthP1:
                 date += cDate;
-                tClock.setText(newTime);
                 break;
 
                 /*
@@ -165,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 60000 = a minute
                 5000 = 5 seconds
                 86400000 = a day
-                657000000*4 = A month
+                657000000*4 + 7200000 = A month
                  */
             case R.id.undo1:
                 long undo = control.getUndo();
@@ -208,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                 60000 = a minute
                 5000 = 5 seconds
                 86400000 = a day
-                657000000*4 = A month
+                657000000*4 + 7200000 = A month
                  */
             case R.id.redo1:
                 long redo = control.getRedo();
@@ -245,14 +218,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void newView(View v) {
         switch (v.getId()) {
-            //New Digital clock
             case R.id.newD1:
                 Intent intent = new Intent(this, MainActivity.class);
+                // It will open the activity
                 startActivity(intent);
                 break;
-            //New Analog Clock
             case R.id.newA1:
                 Intent intent2 = new Intent(this, analogView.class);
+                // It will open the activity
                 startActivity(intent2);
                 break;
 
