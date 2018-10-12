@@ -67,7 +67,7 @@ public class Model {
                 timeBehind = cal.getTime();
                 stringNewDate = sdf.format(timeBehind);
                 Log.d("DateString: ", "String " + stringNewDate);
-                ;
+              
                 c.Push(-60000);
                 return stringNewDate;
 
